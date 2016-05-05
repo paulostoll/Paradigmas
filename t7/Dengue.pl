@@ -18,15 +18,8 @@ ordem(Casas):-
     regraP(Casas),
     regraT(Casas).
 
-/*Questão 1. Qual das seguintes opções é uma lista
-completa e correta da ordem que as sete casas devem
-ser visitadas?
-(A) F, T, H, L, P, G e M.
-(B) H, G, F, L, T, P e M.
-(C) L, T, F, H G, M e P.
-(D) M, F, D, H, L, G e T.
-(E) M, L, H, G, F, P e T.
-
+/*
+1.
 a)?- ordem([f,t,h,l,p,g,m]).
 b)?- ordem([h,g,f,l,t,p,m]).
 c)?- ordem([l,t,f,h,g,m,p]).
