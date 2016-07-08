@@ -8,6 +8,7 @@ package Model;
 import com.restfb.*;
 import com.restfb.types.User;
 import java.util.ArrayList;
+import javax.swing.JTable;
 
 /**
  *
@@ -27,10 +28,12 @@ public class AcessoFacebook {
         return user.getName();
     }
     
-    public void pesquisar(String nome){
+    public void pesquisar(String nome, Tabela tabela){
         Connection<User> publicSearch =  cliente.fetchConnection("search", User.class,
     Parameter.with("q", nome), Parameter.with("type", "user"));
         lista = new ArrayList<User>();
-        lista.addAll(publicSearch.getData());
+        lista.addAll(publicSearch.getData());        
+        for(int i = 0; i<20; i++)
+            tabela.addTabela(lista.get(i));
     }
 }

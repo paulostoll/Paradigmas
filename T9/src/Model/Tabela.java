@@ -19,8 +19,12 @@ public class Tabela extends AbstractTableModel{
     private ArrayList<User> lista;
     
     public Tabela(){
-        //this.lista = lista;
+        lista = new ArrayList<User>();
     }
+    
+    public void addTabela(User user){
+        lista.add(user);
+        fireTableRowsInserted(lista.size()-1, lista.size()-1);    }
     
      @Override
     public int getColumnCount() {
@@ -41,8 +45,8 @@ public class Tabela extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex) {
             //case 0: return user.get(rowIndex).getAno();
-            //case 1: return discips.get(rowIndex).getSemestre();
-            //case 2: return discips.get(rowIndex).getNome();
+            //case 1: return lista.get(rowIndex).getSemestre();
+            case 2: return lista.get(rowIndex).getId();
             case 3: return lista.get(rowIndex).getName();
         }
         return null;

@@ -29,7 +29,7 @@ public class ControllerT9 {
     }
     
     public void procurarUsuario(){
-        model.pesquisar(view.pegarPesquisa().getText());
+        model.pesquisar(view.pegarPesquisa().getText(),view.pegarTabela());
     }
     public void adicionarNaTabela(){
         
