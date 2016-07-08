@@ -7,6 +7,7 @@ package Model;
 
 import com.restfb.*;
 import com.restfb.types.User;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,14 +15,22 @@ import com.restfb.types.User;
  */
 public class AcessoFacebook {
     private final DefaultFacebookClient cliente;
+    private ArrayList<User> lista;
     
     public AcessoFacebook(String token){
         cliente = new DefaultFacebookClient(token);
         
     }
     //Teste - Remover
-    public void pegarUsuario(){
+    public String pegarNomeUsuario(){
         User user = cliente.fetchObject("me", User.class);
-        System.out.println(user.getName() + " " + user.getBirthday());
+        return user.getName();
+    }
+    
+    public void pesquisar(String nome){
+        Connection<User> publicSearch =  cliente.fetchConnection("search", User.class,
+    Parameter.with("q", nome), Parameter.with("type", "user"));
+        lista = new ArrayList<User>();
+        lista.addAll(publicSearch.getData());
     }
 }

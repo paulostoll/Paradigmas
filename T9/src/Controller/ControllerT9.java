@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.AcessoFacebook;
+import View.ViewT9;
 
 /**
  *
@@ -13,9 +14,24 @@ import Model.AcessoFacebook;
  */
 public class ControllerT9 {
     private AcessoFacebook model;
+    private ViewT9 view;
+    
+    public ControllerT9(ViewT9 view){
+        this.view = view;
+    }
     
     public void token(String token){
         model = new AcessoFacebook(token);
-        //model.pegarUsuario();
+    }
+    
+    public void nomeUsuario(){
+        view.pegarTextoUsuario().setText("Usuario: " + model.pegarNomeUsuario());
+    }
+    
+    public void procurarUsuario(){
+        model.pesquisar(view.pegarPesquisa().getText());
+    }
+    public void adicionarNaTabela(){
+        
     }
 }
